@@ -1,5 +1,5 @@
 [![Code
-Climate](https://codeclimate.com/github/dzencot/project-lvl2-s13/badges/gpa.svg)](https://codeclimate.com/github/dzencot/project-lvl2-s13)
+Climate](https://codeclimate.com/github/dzencot/project-lvl2-s13-1/badges/gpa.svg)](https://codeclimate.com/github/dzencot/project-lvl2-s13-1)
 [![Test
 Coverage](https://codeclimate.com/github/dzencot/project-lvl2-s13/badges/coverage.svg)](https://codeclimate.com/github/dzencot/project-lvl2-s13)
 [![Issue
