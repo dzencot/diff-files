@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "project-lvl2-s13 for Hexlet",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "commander": "^2.9.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
@@ -14,6 +16,8 @@
     "babel-preset-env": "^1.1.8",
     "babel-preset-stage-0": "^6.22.0",
     "eslint": "^3.14.0",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-flowtype": "^2.30.0",
     "eslint-plugin-import": "^2.2.0",
     "flow": "^0.2.3",
     "flow-typed": "^2.0.0",
