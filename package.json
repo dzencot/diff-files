@@ -1,0 +1,39 @@
+{
+  "name": "dzencot-project-lvl2-s13",
+  "version": "0.0.1",
+  "description": "project-lvl2-s13 for Hexlet",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-syntax-flow": "^6.18.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-stage-0": "^6.22.0",
+    "eslint": "^3.14.0",
+    "eslint-plugin-import": "^2.2.0",
+    "flow": "^0.2.3",
+    "flow-typed": "^2.0.0",
+    "jest": "^18.1.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production baber src --out-dir dist --source-maps inline",
+    "eslint": "eslint",
+    "prebudlish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzencot/project-lvl2-s13.git"
+  },
+  "author": "Ivan Gagarinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dzencot/project-lvl2-s13/issues"
+  },
+  "homepage": "https://github.com/dzencot/project-lvl2-s13#readme"
+}
