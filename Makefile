@@ -6,3 +6,4 @@ lint:
 
 test:
 	npm test
+
