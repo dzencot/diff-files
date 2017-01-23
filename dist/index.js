@@ -1,6 +1,0 @@
-'use strict';
-
-/* eslint-disable no-console */
-
-console.log('Hello, world!');
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9pbmRleC5qcyJdLCJuYW1lcyI6WyJjb25zb2xlIiwibG9nIl0sIm1hcHBpbmdzIjoiOztBQUNBOztBQUVBQSxRQUFRQyxHQUFSLENBQVksZUFBWiIsImZpbGUiOiJpbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIEBmbG93XG4vKiBlc2xpbnQtZGlzYWJsZSBuby1jb25zb2xlICovXG5cbmNvbnNvbGUubG9nKCdIZWxsbywgd29ybGQhJyk7XG5cbiJdfQ==
