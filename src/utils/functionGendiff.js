@@ -6,7 +6,7 @@ export default (firstData, secondData) => {
   const secondJson = getJson(secondData);
   const result = {};
   Object.keys(firstJson).forEach((key) => {
-    if (secondJson.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(secondJson, key)) {
       if (firstJson[key] !== secondJson[key]) {
         result[`+ ${key}`] = secondJson[key];
         result[`- ${key}`] = firstJson[key];
@@ -18,9 +18,10 @@ export default (firstData, secondData) => {
     }
   });
   Object.keys(secondJson).forEach((key) => {
-    if (!firstJson.hasOwnProperty(key)) {
+    if (!Object.prototype.hasOwnProperty.call(firstJson, key)) {
       result[`+ ${key}`] = secondJson[key];
-    }});
+    }
+  });
   return result;
-}
+};
 

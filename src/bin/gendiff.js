@@ -2,9 +2,9 @@
 
 // @flow
 /* eslint-disable no-console */
+import fs from 'fs';
 import program from 'commander';
 import functionGendiff from '../utils/functionGendiff';
-import fs from 'fs';
 
 program
   .version('0.0.1')
@@ -19,6 +19,6 @@ const runGenDiff = () => {
   const firstFileString = fs.readFileSync(program.args[0], String);
   const secondFileString = fs.readFileSync(program.args[1], String);
   console.log(functionGendiff(firstFileString, secondFileString));
-}
+};
 runGenDiff();
 

@@ -1,7 +1,6 @@
 // @flow
 /* eslint-disable no-console */
 
-import assert from 'assert';
 import getJSON from '../src/utils/getJSON';
 import gendiff from '../src/utils/functionGendiff';
 
@@ -10,8 +9,8 @@ describe('test getJSON', () => {
   const result = {
     firstKey: 'firstValue',
     secondKey: {
-      thirdKey: 'thirdValue'
-    }
+      thirdKey: 'thirdValue',
+    },
   };
 
   it('JSON', () => {
@@ -28,13 +27,12 @@ describe('test gendiff', () => {
     '+ timeout': 20,
     '- timeout': 50,
     '- proxy': '123.234.53.22',
-    '+ verbose': true
+    '+ verbose': true,
   };
   const testing = gendiff(before, after);
 
   it('gendiff test#1', () => {
     expect(testing).toEqual(result);
   });
-
 });
 
