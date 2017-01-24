@@ -1,10 +1,38 @@
 // @flow
 /* eslint-disable no-console */
 
-import assert from 'assert';
+import getJSON from '../src/utils/getJSON';
+import gendiff from '../src/utils/functionGendiff';
 
-describe('project-lvl2', () => {
-  it('should work', () => {
-    assert.equal(1, 1);
+describe('test getJSON', () => {
+  const data = '{ "firstKey": "firstValue", "secondKey": { "thirdKey": "thirdValue" }}';
+  const result = {
+    firstKey: 'firstValue',
+    secondKey: {
+      thirdKey: 'thirdValue',
+    },
+  };
+
+  it('JSON', () => {
+    expect(getJSON(data)).toEqual(result);
   });
 });
+
+describe('test gendiff', () => {
+  const before = '{ "host": "hexlet.io", "timeout": 50, "proxy": "123.234.53.22" }';
+  const after = '{ "host": "hexlet.io", "timeout": 20, "verbose": true }';
+
+  const result = {
+    '  host': 'hexlet.io',
+    '+ timeout': 20,
+    '- timeout': 50,
+    '- proxy': '123.234.53.22',
+    '+ verbose': true,
+  };
+  const testing = gendiff(before, after);
+
+  it('gendiff test#1', () => {
+    expect(testing).toEqual(result);
+  });
+});
+
