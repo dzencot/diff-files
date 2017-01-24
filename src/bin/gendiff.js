@@ -1,7 +1,8 @@
+#!/usr/bin/env node
+
 // @flow
 /* eslint-disable no-console */
-
-const program = require('commander');
+import program from 'commander';
 
 program
   .version('0.0.1')
