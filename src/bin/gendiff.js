@@ -3,6 +3,8 @@
 // @flow
 /* eslint-disable no-console */
 import program from 'commander';
+import functionGendiff from '../utils/functionGendiff';
+import fs from 'fs';
 
 program
   .version('0.0.1')
@@ -12,5 +14,11 @@ program
 
 
 program.parse(process.argv);
-console.log('hello, world');
+
+const runGenDiff = () => {
+  const firstFileString = fs.readFileSync(program.args[0], String);
+  const secondFileString = fs.readFileSync(program.args[1], String);
+  console.log(functionGendiff(firstFileString, secondFileString));
+}
+runGenDiff();
 
