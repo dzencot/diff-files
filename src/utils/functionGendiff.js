@@ -1,9 +1,8 @@
 // @flow
-import getJson from './getJSON';
 
 export default (firstData, secondData) => {
-  const firstJson = getJson(firstData);
-  const secondJson = getJson(secondData);
+  const firstJson = JSON.parse(firstData);
+  const secondJson = JSON.parse(secondData);
   const result = {};
   Object.keys(firstJson).forEach((key) => {
     if (Object.prototype.hasOwnProperty.call(secondJson, key)) {
