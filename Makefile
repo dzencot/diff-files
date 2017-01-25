@@ -7,6 +7,9 @@ lint:
 test:
 	npm test
 
+testWatch:
+	npm run testWatch
+
 run:
 	npm run babel-node -- ./src/bin/gendiff.js $(1) $(2)
 
