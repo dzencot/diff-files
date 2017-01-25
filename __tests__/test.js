@@ -22,5 +22,9 @@ describe('test gendiff', () => {
   it('gendiff test YAML', () => {
     expect(gendiff(`${firstPath}.yml`, `${secondPath}.yml`)).toEqual(result);
   });
+
+  it('gendiff test INI', () => {
+    expect(gendiff(`${firstPath}.ini`, `${secondPath}.ini`)).toEqual(result);
+  });
 });
 
