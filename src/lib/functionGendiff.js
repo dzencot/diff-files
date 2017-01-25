@@ -12,9 +12,8 @@ const getObjectFromFile = (path) => {
     return YAML.parse(fs.readFileSync(path, 'utf-8'));
   } else if (expansion === 'ini') {
     return INI(fs.readFileSync(path, 'utf-8'));
-  } else {
-    return false;
   }
+  return false;
 };
 
 export default (firstPath, secondPath) => {
