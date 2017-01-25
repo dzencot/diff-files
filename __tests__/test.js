@@ -1,22 +1,7 @@
 // @flow
 /* eslint-disable no-console */
 
-import getJSON from '../src/utils/getJSON';
 import gendiff from '../src/utils/functionGendiff';
-
-describe('test getJSON', () => {
-  const data = '{ "firstKey": "firstValue", "secondKey": { "thirdKey": "thirdValue" }}';
-  const result = {
-    firstKey: 'firstValue',
-    secondKey: {
-      thirdKey: 'thirdValue',
-    },
-  };
-
-  it('JSON', () => {
-    expect(getJSON(data)).toEqual(result);
-  });
-});
 
 describe('test gendiff', () => {
   const before = '{ "host": "hexlet.io", "timeout": 50, "proxy": "123.234.53.22" }';

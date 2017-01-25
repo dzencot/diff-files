@@ -23,6 +23,12 @@
     "flow-typed": "^2.0.0",
     "jest": "^18.1.0"
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/__fixtures__/"
+    ]
+  },
   "scripts": {
     "test": "jest",
     "babel-node": "babel-node",

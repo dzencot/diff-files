@@ -1,5 +1,7 @@
 // @flow
 /* eslint-disable no-console */
 
-console.log('Hello, world!');
+import gendiff from './utils/functionGendiff';
+
+export default gendiff;
 
