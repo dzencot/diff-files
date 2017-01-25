@@ -4,8 +4,8 @@
 import gendiff from '../src';
 
 describe('test gendiff', () => {
-  const firstPath = '__tests__/__fixtures__/before.json';
-  const secondPath = '__tests__/__fixtures__/after.json';
+  const firstPath = '__tests__/__fixtures__/before';
+  const secondPath = '__tests__/__fixtures__/after';
 
   const result = {
     '  host': 'hexlet.io',
@@ -15,8 +15,12 @@ describe('test gendiff', () => {
     '+ verbose': true,
   };
 
-  it('gendiff test#1', () => {
-    expect(gendiff(firstPath, secondPath)).toEqual(result);
+  it('gendiff test JSON', () => {
+    expect(gendiff(`${firstPath}.json`, `${secondPath}.json`)).toEqual(result);
+  });
+
+  it('gendiff test YAML', () => {
+    expect(gendiff(`${firstPath}.yml`, `${secondPath}.yml`)).toEqual(result);
   });
 });
 
