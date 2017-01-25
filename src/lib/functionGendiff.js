@@ -1,24 +1,6 @@
 // @flow
 
-import fs from 'fs';
-import pathExt from 'path';
-import YAML from 'yamljs';
-import INI from 'utils-ini-parse';
-
-const getData = (path) => {
-  const data = fs.readFileSync(path, 'utf-8');
-  const expansion = pathExt.extname(path);
-  if (expansion === '.json') {
-    return JSON.parse(data);
-  } else if (expansion === '.yml') {
-    return YAML.parse(data);
-  } else if (expansion === '.ini') {
-    return INI(data);
-  }
-  return false;
-};
-
-const getDiff = (firstObject, secondObject) => {
+export default (firstObject, secondObject) => {
   const result = {};
   Object.keys(firstObject).forEach((key) => {
     if (Object.prototype.hasOwnProperty.call(secondObject, key)) {
@@ -38,11 +20,5 @@ const getDiff = (firstObject, secondObject) => {
     }
   });
   return result;
-};
-
-export default (firstPath, secondPath) => {
-  const firstData = getData(firstPath);
-  const secondData = getData(secondPath);
-  return getDiff(firstData, secondData);
 };
 
