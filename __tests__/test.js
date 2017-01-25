@@ -4,8 +4,8 @@
 import gendiff from '../src/utils/functionGendiff';
 
 describe('test gendiff', () => {
-  const before = '{ "host": "hexlet.io", "timeout": 50, "proxy": "123.234.53.22" }';
-  const after = '{ "host": "hexlet.io", "timeout": 20, "verbose": true }';
+  const firstPath = '__tests__/__fixtures__/before.json';
+  const secondPath = '__tests__/__fixtures__/after.json';
 
   const result = {
     '  host': 'hexlet.io',
@@ -14,10 +14,9 @@ describe('test gendiff', () => {
     '- proxy': '123.234.53.22',
     '+ verbose': true,
   };
-  const testing = gendiff(before, after);
 
   it('gendiff test#1', () => {
-    expect(testing).toEqual(result);
+    expect(gendiff(firstPath, secondPath)).toEqual(result);
   });
 });
 

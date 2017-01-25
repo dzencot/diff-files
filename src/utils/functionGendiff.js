@@ -1,8 +1,10 @@
 // @flow
 
-export default (firstData, secondData) => {
-  const firstJson = JSON.parse(firstData);
-  const secondJson = JSON.parse(secondData);
+import fs from 'fs';
+
+export default (firstPath, secondPath) => {
+  const firstJson = JSON.parse(fs.readFileSync(firstPath, String));
+  const secondJson = JSON.parse(fs.readFileSync(secondPath, String));
   const result = {};
   Object.keys(firstJson).forEach((key) => {
     if (Object.prototype.hasOwnProperty.call(secondJson, key)) {
