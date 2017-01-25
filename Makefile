@@ -7,9 +7,6 @@ lint:
 test:
 	npm test
 
-run1:
-	echo $(1) $(2)
-
 run:
 	npm run babel-node -- ./src/bin/gendiff.js $(1) $(2)
 
