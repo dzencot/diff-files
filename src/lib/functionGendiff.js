@@ -5,13 +5,14 @@ import YAML from 'yamljs';
 import INI from 'utils-ini-parse';
 
 const getObjectFromFile = (path) => {
+  const data = fs.readFileSync(path, 'utf-8');
   const expansion = path.split('.').pop();
   if (expansion === 'json') {
-    return JSON.parse(fs.readFileSync(path, 'utf-8'));
+    return JSON.parse(data);
   } else if (expansion === 'yml') {
-    return YAML.parse(fs.readFileSync(path, 'utf-8'));
+    return YAML.parse(data);
   } else if (expansion === 'ini') {
-    return INI(fs.readFileSync(path, 'utf-8'));
+    return INI(fs.readFileSync(data);
   }
   return false;
 };
