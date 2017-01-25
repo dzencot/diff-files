@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable no-console */
 
-import gendiff from '../src/utils/functionGendiff';
+import gendiff from '../src';
 
 describe('test gendiff', () => {
   const firstPath = '__tests__/__fixtures__/before.json';
