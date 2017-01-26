@@ -1,7 +1,7 @@
 // @
 
 import YAML from 'yamljs';
-import INI from 'utils-ini-parse';
+import INI from 'ini-config-parser';
 
 export default (extension) => {
   switch (extension) {
@@ -10,7 +10,7 @@ export default (extension) => {
     case '.yml':
       return YAML.parse;
     case '.ini':
-      return INI;
+      return INI.parse;
     default:
       return undefined;
   }

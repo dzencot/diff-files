@@ -1,10 +1,12 @@
 // @flow
 
-export default (firstObject, secondObject) => {
+const compareObjects = (firstObject, secondObject) => {
   const result = {};
   Object.keys(firstObject).forEach((key) => {
     if (Object.prototype.hasOwnProperty.call(secondObject, key)) {
-      if (firstObject[key] !== secondObject[key]) {
+      if (firstObject[key] instanceof Object) {
+        result[`  ${key}`] = compareObjects(firstObject[key], secondObject[key]);
+      } else if (firstObject[key] !== secondObject[key]) {
         result[`+ ${key}`] = secondObject[key];
         result[`- ${key}`] = firstObject[key];
       } else {
@@ -21,4 +23,6 @@ export default (firstObject, secondObject) => {
   });
   return result;
 };
+
+export default compareObjects;
 
