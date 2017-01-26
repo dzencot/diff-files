@@ -14,7 +14,6 @@ export default (firstPath, secondPath) => {
 
   const firstParsed = parser(firstExt)(firstData);
   const secondParsed = parser(secondExt)(secondData);
-
   return gendiff(firstParsed, secondParsed);
 };
 
