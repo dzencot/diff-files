@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import gendiff from './lib/functionGendiff';
 import parser from './lib/parser';
+import objToString from './lib/objectToString';
 
 export default (firstPath, secondPath) => {
   const firstData = fs.readFileSync(firstPath, 'utf-8');
@@ -14,6 +15,6 @@ export default (firstPath, secondPath) => {
 
   const firstParsed = parser(firstExt)(firstData);
   const secondParsed = parser(secondExt)(secondData);
-  return gendiff(firstParsed, secondParsed);
+  return objToString(gendiff(firstParsed, secondParsed));
 };
 
