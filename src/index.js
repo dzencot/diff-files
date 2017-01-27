@@ -18,6 +18,6 @@ export default (firstPath, secondPath, ...options) => {
 
   const diff = (gendiff(firstParsed, secondParsed));
 
-  return format(diff, options[0]);
+  return format(options[0])(diff);
 };
 
