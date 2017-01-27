@@ -17,5 +17,5 @@ const toJson = (obj) => {
   return result;
 };
 
-export default toJson;
+export default diff => JSON.stringify(toJson(diff), null, '  ');
 
