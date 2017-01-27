@@ -5,9 +5,9 @@ import fs from 'fs';
 import path from 'path';
 import gendiff from './lib/functionGendiff';
 import parser from './lib/parser';
-import objToString from './lib/objectToString';
+import toPlain from './lib/plain';
 
-export default (firstPath, secondPath) => {
+export default (firstPath, secondPath, ...options) => {
   const firstData = fs.readFileSync(firstPath, 'utf-8');
   const firstExt = path.extname(firstPath);
   const secondData = fs.readFileSync(secondPath, 'utf-8');
@@ -15,6 +15,12 @@ export default (firstPath, secondPath) => {
 
   const firstParsed = parser(firstExt)(firstData);
   const secondParsed = parser(secondExt)(secondData);
-  return objToString(gendiff(firstParsed, secondParsed));
+
+  const diff = (gendiff(firstParsed, secondParsed));
+
+  if (options[0] === 'plain') {
+    return toPlain(diff);
+  }
+  return JSON.stringify(diff, null, 2).replace(/,/g, '');
 };
 
