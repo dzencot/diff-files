@@ -55,5 +55,87 @@ Property 'group3' was added with complex value`;
   it('gendiff test plain', () => {
     expect(gendiff(`${firstPath}.json`, `${secondPath}.json`, 'plain')).toEqual(resultPlain);
   });
+
+  const expectObj = [
+    {
+      name: 'common',
+      type: ' ',
+      data: [
+        {
+          name: 'setting1',
+          type: ' ',
+          data: 'Value 1',
+        },
+        {
+          name: 'setting2',
+          type: '-',
+          data: 200,
+        },
+        {
+          name: 'setting3',
+          type: ' ',
+          data: true,
+        },
+        {
+          name: 'setting6',
+          type: '-',
+          data: {
+            key: 'value',
+          },
+        },
+        {
+          name: 'setting4',
+          type: '+',
+          data: 'blah blah',
+        },
+        {
+          name: 'setting5',
+          type: '+',
+          data: {
+            key5: 'value5',
+          },
+        },
+      ],
+    },
+    {
+      name: 'group1',
+      type: ' ',
+      data: [
+        {
+          name: 'baz',
+          type: '+',
+          data: 'bars',
+        },
+        {
+          name: 'baz',
+          type: '-',
+          data: 'bas',
+        },
+        {
+          name: 'foo',
+          type: ' ',
+          data: 'bar',
+        },
+      ],
+    },
+    {
+      name: 'group2',
+      type: '-',
+      data: {
+        abc: 12345,
+      },
+    },
+    {
+      name: 'group3',
+      type: '+',
+      data: {
+        fee: 100500,
+      },
+    },
+  ];
+
+  it('gendiff test json', () => {
+    expect(gendiff(`${firstPath}.json`, `${secondPath}.json`, 'json')).toEqual(JSON.stringify(expectObj, null, '  '));
+  });
 });
 
