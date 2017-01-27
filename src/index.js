@@ -5,8 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import gendiff from './lib/functionGendiff';
 import parser from './lib/parser';
-import toPlain from './lib/plain';
-import toJSON from './lib/toJson';
+import format from './lib/format';
 
 export default (firstPath, secondPath, ...options) => {
   const firstData = fs.readFileSync(firstPath, 'utf-8');
@@ -19,11 +18,6 @@ export default (firstPath, secondPath, ...options) => {
 
   const diff = (gendiff(firstParsed, secondParsed));
 
-  if (options[0] === 'plain') {
-    return toPlain(diff);
-  } else if (options[0] === 'json') {
-    return toJSON(diff);
-  }
-  return JSON.stringify(diff, null, 2).replace(/,/g, '');
+  return format(diff, options[0]);
 };
 
