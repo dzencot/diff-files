@@ -135,7 +135,7 @@ Property 'group3' was added with complex value`;
   ];
 
   it('gendiff test json', () => {
-    expect(gendiff(`${firstPath}.json`, `${secondPath}.json`, 'json')).toEqual(JSON.stringify(expectObj, null, '  '));
+    expect(gendiff(`${firstPath}.json`, `${secondPath}.json`, 'json')).toEqual(expectObj);
   });
 });
 
