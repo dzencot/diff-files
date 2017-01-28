@@ -3,9 +3,9 @@
 
 import fs from 'fs';
 import path from 'path';
-import gendiff from './lib/functionGendiff';
+import gendiff from './lib/gendiff';
 import parser from './lib/parser';
-import format from './lib/format';
+import format from './lib/formaters';
 
 export default (firstPath, secondPath, ...options) => {
   const firstData = fs.readFileSync(firstPath, 'utf-8');

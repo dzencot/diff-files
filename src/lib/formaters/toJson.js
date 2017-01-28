@@ -3,17 +3,17 @@
 
 const toJson = (obj) => {
   const result = Object.keys(obj).reduce((acc, key) => {
-    const typeVal = key.slice(0, 1);
-    const nameKey = key.slice(2);
-    const value = typeof obj[key] === 'object' && typeVal === ' ' ? toJson(obj[key]) : obj[key];
+    const currentObj = obj[key];
+    const typeVal = currentObj.type;
+    const value = typeVal === 'object' ? toJson(currentObj.data) : currentObj.data;
     const res = {
-      name: nameKey,
       type: typeVal,
       data: value,
     };
-    acc.push(res);
+    if (typeVal === 'updated') res.previous = currentObj.previous;
+    acc[key] = res;
     return acc;
-  }, []);
+  }, {});
   return result;
 };
 
