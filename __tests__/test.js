@@ -13,11 +13,11 @@ describe('test gendiff', () => {
     '    "- setting2": 200\n' +
     '    "  setting3": true\n' +
     '    "- setting6": {\n' +
-    '      "key": "value"\n' +
+    '      "  key": "value"\n' +
     '    }\n' +
     '    "+ setting4": "blah blah"\n' +
     '    "+ setting5": {\n' +
-    '      "key5": "value5"\n' +
+    '      "  key5": "value5"\n' +
     '    }\n' +
     '  }\n' +
     '  "  group1": {\n' +
@@ -26,10 +26,10 @@ describe('test gendiff', () => {
     '    "  foo": "bar"\n' +
     '  }\n' +
     '  "- group2": {\n' +
-    '    "abc": 12345\n' +
+    '    "  abc": 12345\n' +
     '  }\n' +
     '  "+ group3": {\n' +
-    '    "fee": 100500\n' +
+    '    "  fee": 100500\n' +
     '  }\n' +
     '}';
 
@@ -56,83 +56,67 @@ Property 'group3' was added with complex value`;
     expect(gendiff(`${firstPath}.json`, `${secondPath}.json`, 'plain')).toEqual(resultPlain);
   });
 
-  const expectObj = [
-    {
-      name: 'common',
-      type: ' ',
-      data: [
-        {
-          name: 'setting1',
-          type: ' ',
+  const expectObj = {
+    common: {
+      type: 'object',
+      data: {
+        setting1: {
+          type: 'unchanged',
           data: 'Value 1',
         },
-        {
-          name: 'setting2',
-          type: '-',
+        setting2: {
+          type: 'removed',
           data: 200,
         },
-        {
-          name: 'setting3',
-          type: ' ',
+        setting3: {
+          type: 'unchanged',
           data: true,
         },
-        {
-          name: 'setting6',
-          type: '-',
+        setting6: {
+          type: 'removed',
           data: {
             key: 'value',
           },
         },
-        {
-          name: 'setting4',
-          type: '+',
+        setting4: {
+          type: 'added',
           data: 'blah blah',
         },
-        {
-          name: 'setting5',
-          type: '+',
+        setting5: {
+          type: 'added',
           data: {
             key5: 'value5',
           },
         },
-      ],
+      },
     },
-    {
-      name: 'group1',
-      type: ' ',
-      data: [
-        {
-          name: 'baz',
-          type: '+',
+    group1: {
+      type: 'object',
+      data: {
+        baz: {
+          type: 'updated',
           data: 'bars',
+          previous: 'bas',
         },
-        {
-          name: 'baz',
-          type: '-',
-          data: 'bas',
-        },
-        {
-          name: 'foo',
-          type: ' ',
+        foo: {
+          type: 'unchanged',
           data: 'bar',
         },
-      ],
+      },
     },
-    {
-      name: 'group2',
-      type: '-',
+    group2: {
+      type: 'removed',
       data: {
         abc: 12345,
       },
     },
-    {
-      name: 'group3',
-      type: '+',
+    group3: {
+      type: 'added',
       data: {
         fee: 100500,
       },
     },
-  ];
+  };
 
   it('gendiff test json', () => {
     expect(gendiff(`${firstPath}.json`, `${secondPath}.json`, 'json')).toEqual(JSON.stringify(expectObj, null, '  '));

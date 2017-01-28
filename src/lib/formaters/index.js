@@ -1,15 +1,16 @@
 // @flow
 
-import plain from './plain';
+import toPlain from './toPlain';
 import toJson from './toJson';
+import toString from './toString';
 
 export default (format) => {
   switch (format) {
     case 'plain':
-      return plain;
+      return toPlain;
     case 'json':
       return toJson;
     default:
-      return obj => JSON.stringify(obj, null, 2).replace(/,/g, '');
+      return toString;
   }
 };
