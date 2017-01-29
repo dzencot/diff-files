@@ -3,7 +3,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import gendiff from './lib/gendiff';
+import gendiff from './lib/getDiff';
 import parser from './lib/parser';
 import format from './lib/formaters';
 
