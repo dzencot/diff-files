@@ -11,7 +11,7 @@ program
   .action((firstPath, secondPath) =>
     output(getDiff(firstPath, secondPath, program.format)))
   .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format [type]', 'output format');
+  .option('-f, --format [type]', 'output format(plain, json, string(default))');
 
 program.parse(process.argv);
 

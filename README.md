@@ -7,3 +7,22 @@ Count](https://codeclimate.com/github/dzencot/project-lvl2-s13/badges/issue_coun
 [![Build
 Status](https://travis-ci.org/dzencot/project-lvl2-s13.svg)](https://travis-ci.org/dzencot/project-lvl2-s13)
 # Hexlet project L2
+
+## Install: ##
+```
+  git clone https://github.com/dzencot/project-lvl2-s13
+  cd project-lvl2-s13
+  make install
+```
+
+## Usage: ##
+```
+  make run 1=first_file 2=second_file
+```
+### or: ##
+```
+  git clone https://github.com/dzencot/project-lvl2-s13
+  cd project-lvl2-s13
+  make build
+  node dist/bin/gendiff.js --help
+```
